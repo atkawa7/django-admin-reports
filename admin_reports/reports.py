@@ -338,13 +338,13 @@ class Report(object):
             writer.writerows(extra_rows)
         if header:
             writer.writerow(
-                [name.encode(settings.DEFAULT_CHARSET) for name, _ in self.get_fields()]
+                [name for name, _ in self.get_fields()]
             )
         for record in self.iter_results():
             writer.writerow(
                 [
-                    elem.encode(settings.DEFAULT_CHARSET)
-                    if isinstance(elem, unicode)
+                    elem.decode(settings.DEFAULT_CHARSET)
+                    if isinstance(elem, (bytes, bytearray))
                     else elem
                     for elem in record
                 ]
