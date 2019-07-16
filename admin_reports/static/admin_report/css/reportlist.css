@@ -9,3 +9,9 @@
 .table td.align-center {
     text-align: center;
 }
+
+#result_list {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
